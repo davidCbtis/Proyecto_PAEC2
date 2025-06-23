@@ -2,14 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
+require('dotenv').config(); // Esto sí se ejecuta con Node
+
 
 // Conectar a MongoDB
-mongoose.connect('mongodb://localhost:27017/ProyectoPAEC', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-})
-  .then(() => console.log('✅ Conectado a MongoDB'))
-  .catch(err => console.error('❌ Error de conexión', err));
+});
 
 // MODELOS ------------------------------
 
