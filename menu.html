@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú Principal - PAEC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #f4f8fb;
+      color: #2c3e50;
+    }
+
+    .topbar {
+      background-color: #205b4e;
+      color: white;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .topbar img {
+      height: 40px;
+    }
+
+    .topbar .acciones {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .topbar .boton {
+      background-color: #ffffff22;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .topbar .boton:hover {
+      background-color: #ffffff44;
+    }
+
+    .contenido {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 30px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: normal;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    .breadcrumb {
+      margin-bottom: 25px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb span {
+      background-color: #e9f1f4;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #2c3e50;
+    }
+
+    .breadcrumb span::after {
+      content: "›";
+      margin-left: 10px;
+      color: #999;
+    }
+
+    .breadcrumb span:last-child::after {
+      content: "";
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+   <img src="DGTI.png" alt="LOGO DGTI">
+
+
+    <div class="acciones">
+      <a class="boton" href="/Eventos"> Gestión de Eventos</a>
+      <a class="boton" href="/Usuarios"> Gestión de Usuarios</a>
+    </div>
+  </div>
+
+  <div class="contenido">
+    <div class="breadcrumb">
+    
+  
+    </div>
+
+    <h1>PAEC</h1>
+
+    <h2>¿Qué es el PAEC?</h2>
+    <h3>
+      El Programa Aula, Escuela y Comunidad (PAEC) es una estrategia para articular a instituciones y actores que, desde distintos entornos de aprendizaje, pueden contribuir a que los estudiantes de educación media superior desarrollen aprendizajes significativos y contextualizados. Esto se realiza mediante un Proyecto Escolar Comunitario (PEC), con base en su programa de estudios y situaciones reales de su comunidad.
+    </h3>
+
+    <h2>¿Por qué existe esta página web?</h2>
+    <h3>
+      El CBTis 118 está organizando campañas para limpiar y remodelar distintas áreas de la escuela. Esta plataforma sirve como medio de gestión y coordinación de dichas actividades, fomentando la participación de estudiantes, docentes y la comunidad en general.
+    </h3>
+  </div>
+
+</body>
+</html>

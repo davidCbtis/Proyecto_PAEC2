@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gestión de Usuarios - PAEC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #f4f8fb;
+      color: #2c3e50;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #205b4e;
+    }
+
+    .topbar {
+      background-color: #205b4e;
+      color: white;
+      padding: 12px 30x;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .topbar img {
+      height: 40px;
+    }
+
+    .topbar .acciones {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .topbar .boton {
+      background-color: #ffffff22;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .topbar .boton:hover {
+      background-color: #ffffff44;
+    }
+
+    button.toggle {
+      background-color: #205b4e;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 0 10px 20px 0;
+      transition: background-color 0.3s ease;
+    }
+
+    button.toggle:hover {
+      background-color: #1a4b3f;
+    }
+
+    .seccion {
+      display: none;
+      background-color: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 600px;
+      margin-bottom: 40px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form input, form button {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 10px 0;
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    form button {
+      background-color: #205b4e;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #1a4b3f;
+    }
+
+   table {
+  width: 100%;
+  max-width: 1000px;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto 50px;
+  border: 1px solid #205b4e; /* borde general */
+}
+
+thead {
+  background-color: #205b4e;
+  color: white;
+}
+
+th, td {
+  padding: 15px 20px;
+  text-align: left;
+  border: 1px solid #205b4e; /* borde visible */
+  font-size: 16px;
+}
+
+tbody tr:hover {
+  background-color: #e9f1f4;
+}
+
+
+    tbody tr:hover {
+      background-color: #e9f1f4;
+    }
+
+    a.boton {
+      display: inline-block;
+      padding: 15px 40px;
+      margin: 0 auto;
+      font-size: 18px;
+      color: white;
+      background-color: #205b4e;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+      max-width: 200px;
+      text-align: center;
+      display: block;
+    }
+
+    a.boton:hover {
+      background-color: #1a4b3f;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .topbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      button.toggle {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      form input, form button {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+
+      table, th, td {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <img src="DGTI.png" alt="LOGO DGTI" />
+    <div class="acciones">
+      <a class="boton" href="/menu.html">Regresar al menú</a>
+    </div>
+  </div>
+
+  <h1>Gestión de Eventos</h1>
+
+  <!-- BOTONES PARA MOSTRAR SECCIONES -->
+  <button class="toggle" onclick="mostrarSeccion('agregar')">Agregar Evento</button>
+  <button class="toggle" onclick="mostrarSeccion('actualizar')">Actualizar Evento</button>
+  <button class="toggle" onclick="mostrarSeccion('eliminar')">Eliminar Evento</button>
+
+  <!-- FORMULARIO AGREGAR -->
+  <div id="seccion-agregar" class="seccion">
+    <h2>Agregar Evento</h2>
+    <form id="formAgregar">
+      <input type="number" id="idAgregar" placeholder="ID" required />
+      <input type="text" id="UbicacionAgregar" placeholder="Ubicación" required />
+      <input type="text" id="OrganizadorAgregar" placeholder="Organizador" required />
+      <input type="number" id="CantidadUsuariosAgregar" placeholder="Cantidad de Usuarios" required />
+      <input type="text" id="HoraAgregar" placeholder="Hora" required />
+      <button type="submit">Guardar</button>
+    </form>
+  </div>
+
+  <!-- FORMULARIO ACTUALIZAR -->
+  <div id="seccion-actualizar" class="seccion">
+    <h2>Actualizar Evento (por ID)</h2>
+    <form id="formActualizar">
+      <input type="number" id="idActualizar" placeholder="ID del evento" required />
+      <input type="text" id="UbicacionActualizar" placeholder="Nueva Ubicación" />
+      <input type="text" id="OrganizadorActualizar" placeholder="Nuevo Organizador" />
+      <input type="number" id="CantidadUsuariosActualizar" placeholder="Nueva Cantidad" />
+      <input type="text" id="HoraActualizar" placeholder="Nueva Hora" />
+      <button type="submit">Actualizar</button>
+    </form>
+  </div>
+
+  <!-- FORMULARIO ELIMINAR -->
+  <div id="seccion-eliminar" class="seccion">
+    <h2>Eliminar Evento (por ID)</h2>
+    <form id="formEliminar">
+      <input type="number" id="idEliminar" placeholder="ID a eliminar" required />
+      <button type="submit">Eliminar</button>
+    </form>
+  </div>
+
+
+
+  <!-- TABLA -->
+  <h2>Lista de Eventos</h2>
+  <table border="1" id="tablaEventos">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Ubicación</th>
+        <th>Organizador</th>
+        <th>Usuarios</th>
+        <th>Hora</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+ 
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.seccion').forEach(sec => sec.style.display = 'none');
+      document.getElementById(`seccion-${id}`).style.display = 'block';
+    }
+
+    async function cargarUsuarios() {
+      const res = await fetch('/api/Eventos');
+      const eventos = await res.json();
+      const tbody = document.querySelector('#tablaEventos tbody');
+      tbody.innerHTML = '';
+      eventos.forEach(evento => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+          <td>${evento.id}</td>
+          <td>${evento.Ubicacion}</td>
+          <td>${evento.Organizador}</td>
+          <td>${evento.CantidadUsuarios}</td>
+          <td>${evento.Hora}</td>
+        `;
+        tbody.appendChild(fila);
+      });
+    }
+
+    document.getElementById('formAgregar').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const datos = {
+        id: parseInt(document.getElementById('idAgregar').value),
+        Ubicacion: document.getElementById('UbicacionAgregar').value,
+        Organizador: document.getElementById('OrganizadorAgregar').value,
+        CantidadUsuarios: parseInt(document.getElementById('CantidadUsuariosAgregar').value),
+        Hora: document.getElementById('HoraAgregar').value
+      };
+      const res = await fetch('/api/Eventos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+      });
+      const result = await res.json();
+      alert(result.message);
+      cargarUsuarios();
+    });
+
+    
+
+    document.getElementById('formActualizar').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const datos = {
+        id: parseInt(document.getElementById('idActualizar').value),
+        Ubicacion: document.getElementById('UbicacionActualizar').value,
+        Organizador: document.getElementById('OrganizadorActualizar').value,
+        CantidadUsuarios: parseInt(document.getElementById('CantidadUsuariosActualizar').value),
+        Hora: document.getElementById('HoraActualizar').value
+      };
+      const res = await fetch('/api/Eventos', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(datos)
+      });
+      const result = await res.json();
+      alert(result.message);
+      cargarUsuarios();
+    });
+    
+
+    document.getElementById('formEliminar').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('idEliminar').value;
+      const res = await fetch(`/api/Eventos/${id}`, {
+        method: 'DELETE'
+      });
+
+      
+      const result = await res.json();
+      alert(result.message);
+      cargarUsuarios();
+    });
+
+    cargarUsuarios();
+    
+
+
+    
+  </script>
+</body>
+</html>
